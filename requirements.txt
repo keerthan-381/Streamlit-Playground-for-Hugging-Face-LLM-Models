@@ -1,7 +1,7 @@
-streamlit==1.25.0
-transformers==4.33.3
-torch==2.1.0
-pillow==10.0.0
-opencv-python-headless==4.8.0
-requests==2.31.0
-huggingface_hub==0.17.2
+streamlit
+transformers
+torch
+pillow
+opencv-python-headless
+requests
+huggingface_hub
