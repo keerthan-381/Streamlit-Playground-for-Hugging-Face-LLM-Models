@@ -160,7 +160,7 @@ else:
                 if isinstance(image, str):
                     st.error(image)
                 else:
-                    st.image(image, caption=f"Generated Image using {image_model}", use_column_width=True)
+                    st.image(image, caption=f"Generated Image using {image_model}", =True)
 
     elif mode == "Image-to-Text":
         image_to_text_model = st.sidebar.radio(
@@ -180,7 +180,7 @@ else:
                 if isinstance(caption, str) and caption.startswith("An error occurred"):
                     st.error(caption)
                 else:
-                    st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
+                    st.image(uploaded_image, caption="Uploaded Image", =True)
                     st.subheader("Generated Caption:")
                     st.write(caption)
 
