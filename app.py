@@ -84,23 +84,6 @@ def summarize_text(repo_id, text, sec_key):
         return f"An error occurred: {str(e)}"
 
 
-def generate_video(repo_id, prompt, sec_key):
-    """Generate a video from the specified model."""
-    url = f"https://api-inference.huggingface.co/models/{repo_id}"
-    headers = {"Authorization": f"Bearer {sec_key}"}
-    payload = {"inputs": prompt}
-    
-    try:
-        response = requests.post(url, headers=headers, json=payload)
-        response.raise_for_status()
-        # Save video as binary content
-        video_data = response.content
-        video_path = "/tmp/generated_video.mp4"
-        with open(video_path, "wb") as video_file:
-            video_file.write(video_data)
-        return video_path
-    except requests.exceptions.RequestException as e:
-        return f"An error occurred: {str(e)}"
 
 
 
@@ -216,25 +199,7 @@ else:
                     st.subheader("Summary:")
                     st.write(summary)
 
-    
-    elif mode == "Text to Video Generation":
-        video_model = st.sidebar.radio(
-            "**Text to Video Model**",
-            ["dreamlike-playground/dreamlike-video-1.0"]
-        )
-        prompt = st.text_input("Enter your prompt for video generation:")
 
-        if st.button("Generate Video"):
-            if prompt.strip() == "":
-                st.error("Prompt cannot be empty. Please enter a valid prompt.")
-            else:
-                with st.spinner(f"Generating video using {video_model}..."):
-                    video_path = generate_video(video_model, prompt, hf_token)
-                if isinstance(video_path, str) and video_path.startswith("An error occurred"):
-                    st.error(video_path)
-                else:
-                    st.subheader("Generated Video:")
-                    st.video(video_path)
 
 # Additional details
 st.markdown("---")
