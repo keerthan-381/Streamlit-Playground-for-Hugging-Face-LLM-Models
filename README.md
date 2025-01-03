@@ -56,10 +56,6 @@ This project is a Streamlit-based application that allows users to interact with
    - Uses **[BART-Large CNN](https://huggingface.co/facebook/bart-large-cnn)** for text summarization.
    - Enter a long text to get a summarized output.
 
-### 6. **Text-to-Video Generation**
-   - Uses **[Dreamlike Video 1.0](https://huggingface.co/dreamlike-playground/dreamlike-video-1.0)** for generating videos.
-   - Input a prompt to generate a video.
-
 ## Usage Guide
 
 ### API Key
